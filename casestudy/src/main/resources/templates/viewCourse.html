@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Course</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Course: <span th:text="${course.name}"></span></h2>
+        <h4>Description: <span th:text="${course.description}"></span></h4>
+
+        <h4>Lessons</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="lesson : ${course.lessons}">
+                    <td th:text="${lesson.id}"></td>
+                    <td th:text="${lesson.name}"></td>
+                    <td th:text="${lesson.content}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Learners</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="learner : ${course.learner}">
+                    <td th:text="${learner.id}"></td>
+                    <td th:text="${learner.name}"></td>
+                    <td th:text="${learner.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

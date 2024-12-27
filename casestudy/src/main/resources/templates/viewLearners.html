@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Learners</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">View Learners</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="learner : ${learners}">
+                    <td th:text="${learner.id}"></td>
+                    <td th:text="${learner.name}"></td>
+                    <td th:text="${learner.email}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/admin/editLearner/{id}(id=${learner.id})}">Edit</a>
+                        <a class="btn btn-danger" th:href="@{/admin/deleteLearner/{id}(id=${learner.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
